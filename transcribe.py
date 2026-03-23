@@ -4,7 +4,11 @@ import wave
 import json
 from vosk import Model, KaldiRecognizer
 
-MODEL_PATH = "vosk-model-small-te-0.42"
+# Support for both Telugu and English models
+MODEL_PATHS = {
+    "telugu": "vosk-model-small-te-0.42",
+    "english": "vosk-model-small-en-us-0.15"  # Will fallback to Telugu if not available
+}
 
 def convert_audio(input_file, output_file="clean.wav"):
     subprocess.run([
@@ -19,11 +23,16 @@ def convert_audio(input_file, output_file="clean.wav"):
     return output_file
 
 
-def transcribe(audio_file):
-
+def transcribe(audio_file, language="telugu"):
+    """Transcribe audio file. Language can be 'telugu' or 'english'"""
     clean_file = convert_audio(audio_file)
 
-    model = Model(MODEL_PATH)
+    # Try to use requested language model, fallback to Telugu if not available
+    model_path = MODEL_PATHS.get(language, MODEL_PATHS["telugu"])
+    if not os.path.exists(model_path):
+        model_path = MODEL_PATHS["telugu"]  # Fallback
+
+    model = Model(model_path)
     wf = wave.open(clean_file, "rb")
 
     rec = KaldiRecognizer(model, 16000)

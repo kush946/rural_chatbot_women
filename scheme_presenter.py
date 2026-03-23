@@ -81,21 +81,41 @@ def telugu_notes(text):
     return text
 
 
-def show_scheme(scheme):
+def show_scheme(scheme, language="telugu"):
+    """Display scheme information in selected language"""
 
-    print("\n==============================")
-    print("📌 పథకం పేరు:", scheme["name"])
-    print("==============================")
+    if language == "english":
+        print("\n==============================")
+        print("SCHEME:", scheme["name"])
+        print("==============================")
 
-    print("\n🟢 లాభాలు:")
-    print(telugu_benefits(scheme["benefits"]))
+        print("\nBenefits:")
+        print(scheme["benefits"])
 
-    print("\n📝 దరఖాస్తు విధానం:")
-    print(telugu_application(scheme["application"]))
+        print("\nHow to Apply:")
+        print(scheme["application"])
 
-    print("\n📄 అవసరమైన పత్రాలు:")
-    for doc in scheme["documents"]:
-        print("-", telugu_documents(doc))
+        print("\nDocuments Needed:")
+        for doc in scheme["documents"]:
+            print(" -", doc)
 
-    print("\n⚠️ గమనిక:")
+        print("\nNotes:")
+        print(scheme["notes"])
+
+    else:  # Telugu
+        print("\n==============================")
+        print("📌 పథకం పేరు:", scheme["name"])
+        print("==============================")
+
+        print("\n🟢 లాభాలు:")
+        print(telugu_benefits(scheme["benefits"]))
+
+        print("\n📝 దరఖాస్తు విధానం:")
+        print(telugu_application(scheme["application"]))
+
+        print("\n📄 అవసరమైన పత్రాలు:")
+        for doc in scheme["documents"]:
+            print("-", telugu_documents(doc))
+
+        print("\n⚠️ గమనిక:")
     print(telugu_notes(scheme["notes"]))

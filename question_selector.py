@@ -10,7 +10,10 @@ PRIORITY_ORDER = [
     "single_woman",
     "delivery_in_govt_hospital",
     "serious_illness",
-    "skill_in_tailoring"
+    "skill_in_tailoring",
+    "minority_woman",
+    "num_children",
+    "community"
 ]
 
 
@@ -45,6 +48,15 @@ def next_best_question(profile, intent):
             continue
 
         required |= required_fields_from_scheme(scheme)
+
+    # Filter out gender-specific questions if gender is known
+    gender = profile.get("gender")
+    if gender == "male":
+        required.discard("widow")
+        required.discard("single_woman")
+        required.discard("minority_woman")
+        required.discard("woman")
+    # If female or unknown, keep them (assume female if unknown for safety)
 
     # ask highest priority missing field
     for field in PRIORITY_ORDER:

@@ -11,7 +11,7 @@ SCHEMES = [
 "eligibility": {
     "age_min": 18,
     "religion_exclude": ["muslim"],
-    "income_max": 200000,
+    "income_max": 150000,
     "community": ["sc","st","bc","ebc"]
 },
 
@@ -129,7 +129,27 @@ SCHEMES = [
 # =====================================================
 
 {
-"name": "Aasara Pension - Widow",
+"name": "Telangana Aasara Pension Scheme",
+"category": "pension_support",
+
+"eligibility": {
+    # generic entry, no hard requirements – covers all Aasara pension types
+},
+
+"benefits": "₹2016 monthly pension (widow/old age/single women categories)",
+
+"application": "MeeSeva or Village Secretariat depending on subcategory",
+
+"documents": [
+    "Aadhaar",
+    "Relevant proof depending on category"
+],
+
+"notes": "Covers widow, senior citizen and single women pensions"
+},
+
+{
+"name": "Telangana Aasara Pension Scheme (Widow)",
 "category": "pension_support",
 
 "eligibility": {
@@ -151,7 +171,7 @@ SCHEMES = [
 },
 
 {
-"name": "Aasara Pension - Old Age",
+"name": "Telangana Aasara Pension Scheme (Old Age)",
 "category": "pension_support",
 
 "eligibility": {
@@ -172,7 +192,7 @@ SCHEMES = [
 },
 
 {
-"name": "Aasara Pension - Single Women",
+"name": "Telangana Aasara Pension Scheme (Single Women)",
 "category": "pension_support",
 
 "eligibility": {
@@ -223,7 +243,7 @@ SCHEMES = [
 # =====================================================
 
 {
-"name": "Minority Mahila Yojana",
+"name": "Telangana Indiramma Minority Mahila Yojana",
 "category": "employment_support",
 
 "eligibility": {
@@ -247,7 +267,7 @@ SCHEMES = [
 },
 
 {
-"name": "Free Sewing Machine Scheme",
+"name": "Telangana Sewing Machine Scheme",
 "category": "employment_support",
 
 "eligibility": {
@@ -275,7 +295,7 @@ SCHEMES = [
 # =====================================================
 
 {
-"name": "Mahalakshmi Scheme",
+"name": "Telangana Mahalakshmi Scheme",
 "category": "financial_support",
 
 "eligibility": {
@@ -297,7 +317,7 @@ SCHEMES = [
 },
 
 {
-"name": "Indiramma Saree Scheme",
+"name": "Telangana Indiramma Saree Scheme",
 "category": "financial_support",
 
 "eligibility": {
